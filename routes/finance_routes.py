@@ -7,8 +7,8 @@ finance_routes = Blueprint('finance_routes', __name__)
 @finance_routes.route('/records', methods=['POST'])
 def add_record():
     data = request.get_json()
-
-    record = create_record(data)
+    user_id=request.args.get("user_id")
+    record = create_record(data, int(user_id))
 
     return jsonify({
         "id": record.id,
@@ -20,8 +20,10 @@ def add_record():
 #Get all records
 @finance_routes.route('/records', methods=['GET'])
 def get_all_records():
+    user_id = request.args.get("user_id")
+    check_permission(int(user_id), "read")
     records = get_records()
-
+    
     result = []
     for r in records:
         result.append({
@@ -57,5 +59,9 @@ def filter_api():
 
 @finance_routes.route('/records/<int:id>', methods=['DELETE'])
 def delete_api(id):
+    user_id = request.args.get("user_id")
+
+    check_permission(int(user_id), "delete")
+    
     delete_record(id)
     return {"message": "Deleted successfully"}
