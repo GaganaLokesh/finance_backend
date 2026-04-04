@@ -7,37 +7,37 @@
 
 # Features
 
-1. 👤 User Management
+1. User Management
 
 * Create, update users
 * Assign roles (VIEWER, ANALYST, ADMIN)
 * Activate / Deactivate users
 
-2. 💰 Financial Records
+2. Financial Records
 
 * Create, view, delete records
 * Filter by type and category
 
-3. - 📊 Dashboard
+3. - Dashboard
 
 * Total Income
 * Total Expense
 * Net Balance
 * Category-wise summary
 
-4. 🔐 Access Control
+4. Access Control
 
 * VIEWER → read only
 * ANALYST → read only
 * ADMIN → full access
 
-# 🛠️ Tech Stack
+# Tech Stack
 
 * Python (Flask)
 * MySQL
 * SQLAlchemy ORM
 
-#⚙️ Setup Instructions
+# Setup Instructions
 
 1. Create virtual environment:
    python -m venv env
@@ -51,7 +51,7 @@
 4. Run application:
    python app.py
 
-#📡 API Endpoints
+# API Endpoints
 
 --> User APIs
 
@@ -72,22 +72,25 @@
 
 * GET /dashboard/summary?user_id=
 
-## 🧠 Design Decisions
+## Design Decisions
 
 * Separation of concerns using services and routes
 * Role-based access implemented at service layer
 * Aggregation logic handled dynamically for dashboard
 * Validation and error handling included
 
-# 📌 Assumptions
+# Assumptions
 
 * Authentication is mocked using user_id
 * Roles are predefined
 * No frontend included
 
-# ⭐ Future Improvements
+# Future Improvements
 
 * JWT Authentication
 * Pagination
 * Search functionality
 * Unit testing
+
+# API Testing
+Postman collection is included in the repository for testing all endpoints.
